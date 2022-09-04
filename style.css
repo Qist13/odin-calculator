@@ -1,0 +1,128 @@
+:root {
+  padding: 0px;
+  margin: 0px;
+  --bg-color: rgb(240, 240, 240);
+  --calc-bg-color: white;
+  --btn-bg-color: white;
+  --btn-theme-bg-color: #282c2f;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-color-opp: #fffb;
+  --text-color: black;
+}
+
+:root.dark {
+  --bg-color: #282c2f;
+  --calc-bg-color: #33393e;
+  --btn-bg-color: #33393e;
+  --btn-theme-bg-color: rgb(240, 240, 240);
+  --shadow-color: rgba(0, 0, 0, 0.25);
+  --shadow-color-opp: black;
+  --text-color: white;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--bg-color);
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 450px;
+  gap: 16px;
+  border-radius: 16px;
+  box-shadow: 16px 16px 20px var(--shadow-color),
+    -16px -16px 20px var(--shadow-color-opp);
+  padding: 16px;
+  background-color: var(--calc-bg-color);
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 8px;
+}
+
+.button-container > div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.display {
+  padding: 20px 20px;
+  height: 40px;
+  font-weight: 500;
+  text-align: right;
+  font-size: 32px;
+  color: lightskyblue;
+  overflow-y: hidden;
+  box-shadow: inset 5px 5px 10px var(--shadow-color),
+    inset -5px -5px 20px var(--shadow-color-opp);
+  border-radius: 8px;
+}
+
+button {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border-style: none;
+  cursor: pointer;
+  background-color: var(--btn-bg-color);
+  box-shadow: 5px 5px 10px var(--shadow-color),
+    -5px -5px 10px var(--shadow-color-opp);
+  color: var(--text-color);
+}
+
+button:active {
+  box-shadow: inset 5px 5px 10px var(--shadow-color),
+    inset -5px -5px 10px var(--shadow-color-opp);
+}
+
+#btn-add {
+  height: 108px;
+  border-radius: 10px;
+}
+
+.brand {
+  text-align: center;
+  font-size: 2rem;
+  background: linear-gradient(
+    90deg,
+    #ff0000,
+    #ffff00,
+    #ff00f3,
+    #0033ff,
+    #ff00c4,
+    #ff0000
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  animation: animate 10s linear infinite;
+}
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+#theme-toggle {
+  position: fixed;
+  top: 100px;
+  left: calc(50% - 25px);
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--btn-theme-bg-color);
+  box-shadow: none;
+}
